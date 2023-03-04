@@ -10,6 +10,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { IExpense } from "../../interfaces/IExpense";
+import { currencyFormatter } from "../../utils/currencyFormatter";
 
 interface ICardComponent {
   expense: IExpense;
@@ -23,7 +24,7 @@ const CardComponent: React.FC<ICardComponent> = (props) => {
           <Heading size="md">{props.expense.name}</Heading>
           <Text>{props.expense.description}</Text>
           <Text color="blue.600" fontSize="2xl">
-            R$:{props.expense.price}
+            {currencyFormatter(props.expense.price)}
           </Text>
         </Stack>
         <Text color="black.600" fontSize="2sm">
